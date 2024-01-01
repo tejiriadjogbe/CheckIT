@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ImageDescriptionView" customModule="Components">
+            <connections>
+                <outlet property="image" destination="Kf0-3n-DB6" id="BJY-D5-cIz"/>
+                <outlet property="subtitle" destination="iOi-O2-IHk" id="Ate-jD-6K7"/>
+                <outlet property="title" destination="dgj-om-7g1" id="knZ-56-x8D"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iKI-KO-w3o">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="479"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Df4-gM-bzY">
+                    <rect key="frame" x="39" y="0.0" width="315" height="418"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slider1" translatesAutoresizingMaskIntoConstraints="NO" id="Kf0-3n-DB6">
+                            <rect key="frame" x="9" y="0.0" width="297" height="297"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="297" id="pka-aZ-iKD"/>
+                            </constraints>
+                        </imageView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jH1-cf-Hdh">
+                            <rect key="frame" x="37.666666666666686" y="307" width="240" height="30"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="ziW-SI-AFQ"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to CheckIT" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgj-om-7g1" customClass="BoldLabel" customModule="Utilities">
+                            <rect key="frame" x="24" y="347" width="267" height="20.333333333333314"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" name="Headline"/>
+                            <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="size">
+                                    <real key="value" value="20"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seamlessly Explore, Collaborate, and Elevate Your Projects" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iOi-O2-IHk" customClass="RegularLabel" customModule="Utilities">
+                            <rect key="frame" x="24" y="377.33333333333331" width="267" height="40.666666666666686"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" name="Body"/>
+                            <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="size">
+                                    <real key="value" value="16"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="dgj-om-7g1" firstAttribute="leading" secondItem="Df4-gM-bzY" secondAttribute="leading" constant="24" id="NDk-FV-7LC"/>
+                        <constraint firstItem="iOi-O2-IHk" firstAttribute="leading" secondItem="Df4-gM-bzY" secondAttribute="leading" constant="24" id="SNd-Jg-8s1"/>
+                        <constraint firstAttribute="trailing" secondItem="iOi-O2-IHk" secondAttribute="trailing" constant="24" id="jha-Kt-B45"/>
+                        <constraint firstAttribute="trailing" secondItem="dgj-om-7g1" secondAttribute="trailing" constant="24" id="yEX-BC-Qsh"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="FKs-6A-z8P"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="Df4-gM-bzY" firstAttribute="leading" secondItem="iKI-KO-w3o" secondAttribute="leading" constant="39" id="Dgl-dl-sx5"/>
+                <constraint firstAttribute="trailing" secondItem="Df4-gM-bzY" secondAttribute="trailing" constant="39" id="GnJ-Jg-p3B"/>
+                <constraint firstItem="Df4-gM-bzY" firstAttribute="top" secondItem="iKI-KO-w3o" secondAttribute="top" id="wXC-y4-I8O"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="43.511450381679388" y="-82.74647887323944"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="slider1" width="297" height="297"/>
+        <namedColor name="Body">
+            <color red="0.4823529411764706" green="0.4823529411764706" blue="0.4823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Headline">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

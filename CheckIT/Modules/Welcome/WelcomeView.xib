@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WelcomeViewController" customModule="CheckIT" customModuleProvider="target">
+            <connections>
+                <outlet property="pageCtrl" destination="ziw-z2-YKa" id="kXc-TL-P8Z"/>
+                <outlet property="slider" destination="OVa-L6-o2k" id="4ir-0s-Qbm"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="FEJ-Wi-Hxp">
+                    <rect key="frame" x="0.0" y="119" width="393" height="669"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FQz-FR-tTX">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="495"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OVa-L6-o2k" customClass="Slider" customModule="Utilities">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="465"/>
+                                    <color key="backgroundColor" name="Background"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="465" id="uGN-D7-ds0"/>
+                                    </constraints>
+                                </view>
+                                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="ziw-z2-YKa">
+                                    <rect key="frame" x="0.0" y="475" width="393" height="20"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="20" id="yAm-39-7fD"/>
+                                    </constraints>
+                                    <color key="pageIndicatorTintColor" name="Outline"/>
+                                    <color key="currentPageIndicatorTintColor" name="Tetiary"/>
+                                </pageControl>
+                            </subviews>
+                        </stackView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GrN-Dl-0Ah" customClass="PrimaryButton" customModule="Utilities">
+                            <rect key="frame" x="39" y="627" width="315" height="42"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="42" id="ees-9L-sa1"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Get Started"/>
+                            <connections>
+                                <action selector="getStartedTapped:" destination="-1" eventType="touchUpInside" id="smc-Sd-rCd"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="GrN-Dl-0Ah" secondAttribute="trailing" constant="39" id="c6D-A6-FAr"/>
+                        <constraint firstAttribute="trailing" secondItem="FQz-FR-tTX" secondAttribute="trailing" id="gYw-bf-fHm"/>
+                        <constraint firstItem="FQz-FR-tTX" firstAttribute="leading" secondItem="FEJ-Wi-Hxp" secondAttribute="leading" id="h1s-wG-cBV"/>
+                        <constraint firstItem="GrN-Dl-0Ah" firstAttribute="leading" secondItem="FEJ-Wi-Hxp" secondAttribute="leading" constant="39" id="nBt-kY-PE8"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" name="Background"/>
+            <constraints>
+                <constraint firstItem="FEJ-Wi-Hxp" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="60" id="4R6-Dn-dHg"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="FEJ-Wi-Hxp" secondAttribute="bottom" constant="30" id="EFR-te-UAG"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="FEJ-Wi-Hxp" secondAttribute="trailing" id="p7p-TN-EUB"/>
+                <constraint firstItem="FEJ-Wi-Hxp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="y10-rR-Go1"/>
+            </constraints>
+            <point key="canvasLocation" x="127.48091603053435" y="19.718309859154932"/>
+        </view>
+    </objects>
+    <designables>
+        <designable name="GrN-Dl-0Ah">
+            <size key="intrinsicContentSize" width="80" height="30"/>
+        </designable>
+    </designables>
+    <resources>
+        <namedColor name="Background">
+            <color red="0.99215686274509807" green="0.99215686274509807" blue="0.99215686274509807" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Outline">
+            <color red="0.75686274509803919" green="0.75686274509803919" blue="0.75686274509803919" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Tetiary">
+            <color red="1" green="0.70588235294117652" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
