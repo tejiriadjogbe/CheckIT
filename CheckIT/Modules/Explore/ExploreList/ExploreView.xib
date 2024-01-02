@@ -14,6 +14,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ExploreViewController" customModule="CheckIT" customModuleProvider="target">
             <connections>
                 <outlet property="profileListView" destination="Qtp-YY-WfG" id="4M2-mh-WLy"/>
+                <outlet property="scrollview" destination="qH9-9Y-mgm" id="0BF-mJ-L16"/>
+                <outlet property="searchField" destination="4Vb-N0-X8Z" id="N2m-F3-fBs"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -22,72 +24,102 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="MbO-Lb-KeK">
-                    <rect key="frame" x="24" y="69" width="345" height="24"/>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qH9-9Y-mgm">
+                    <rect key="frame" x="0.0" y="59" width="393" height="793"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GitHub Explorer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qsk-ai-Yi3" customClass="BoldLabel" customModule="Utilities">
-                            <rect key="frame" x="0.0" y="0.0" width="313" height="24"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="size">
-                                    <real key="value" value="20"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                        </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9SW-lD-AwN">
-                            <rect key="frame" x="321" y="0.0" width="24" height="24"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sdN-rl-2lR">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="793"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="MbO-Lb-KeK">
+                                    <rect key="frame" x="24" y="10" width="345" height="24"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GitHub Explorer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qsk-ai-Yi3" customClass="BoldLabel" customModule="Utilities">
+                                            <rect key="frame" x="0.0" y="0.0" width="313" height="24"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="size">
+                                                    <real key="value" value="20"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9SW-lD-AwN">
+                                            <rect key="frame" x="321" y="0.0" width="24" height="24"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="24" id="HmQ-vl-nmk"/>
+                                                <constraint firstAttribute="height" constant="24" id="aDd-UR-e1Q"/>
+                                            </constraints>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" title="Button" image="bell"/>
+                                        </button>
+                                    </subviews>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="tld-fY-sDC">
+                                    <rect key="frame" x="24" y="44" width="345" height="749"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connect and Collaborate with the Community" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UyP-bV-kRy" customClass="RegularLabel" customModule="Utilities">
+                                            <rect key="frame" x="0.0" y="0.0" width="345" height="40.666666666666664"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" name="Body"/>
+                                            <nil key="highlightedColor"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="size">
+                                                    <real key="value" value="16"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </label>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search Users by Name or Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Vb-N0-X8Z" customClass="SearchInputView" customModule="Utilities">
+                                            <rect key="frame" x="0.0" y="64.666666666666657" width="345" height="48"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="48" id="Z5E-Gz-gAv"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qtp-YY-WfG" customClass="ListView" customModule="Utilities">
+                                            <rect key="frame" x="0.0" y="136.66666666666669" width="345" height="612.33333333333326"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        </view>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="24" id="HmQ-vl-nmk"/>
-                                <constraint firstAttribute="height" constant="24" id="aDd-UR-e1Q"/>
+                                <constraint firstItem="tld-fY-sDC" firstAttribute="top" secondItem="MbO-Lb-KeK" secondAttribute="bottom" constant="10" id="HLw-Gm-yAJ"/>
+                                <constraint firstAttribute="bottom" secondItem="tld-fY-sDC" secondAttribute="bottom" id="RtC-CY-5nt"/>
+                                <constraint firstItem="MbO-Lb-KeK" firstAttribute="top" secondItem="sdN-rl-2lR" secondAttribute="top" constant="10" id="TnJ-ZT-aaf"/>
+                                <constraint firstItem="MbO-Lb-KeK" firstAttribute="leading" secondItem="sdN-rl-2lR" secondAttribute="leading" constant="24" id="asu-nb-FW4"/>
+                                <constraint firstAttribute="trailing" secondItem="tld-fY-sDC" secondAttribute="trailing" constant="24" id="gaH-qb-VFf"/>
+                                <constraint firstAttribute="trailing" secondItem="MbO-Lb-KeK" secondAttribute="trailing" constant="24" id="zVk-g7-bZq"/>
+                                <constraint firstItem="tld-fY-sDC" firstAttribute="leading" secondItem="sdN-rl-2lR" secondAttribute="leading" constant="24" id="zr3-NS-tlu"/>
                             </constraints>
-                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                            <state key="normal" title="Button" image="bell"/>
-                        </button>
-                    </subviews>
-                </stackView>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="tld-fY-sDC">
-                    <rect key="frame" x="24" y="101" width="345" height="751"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connect and Collaborate with the Community" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UyP-bV-kRy" customClass="RegularLabel" customModule="Utilities">
-                            <rect key="frame" x="0.0" y="0.0" width="345" height="40.666666666666664"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" name="Body"/>
-                            <nil key="highlightedColor"/>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="size">
-                                    <real key="value" value="16"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                        </label>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search Users by Name or Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Vb-N0-X8Z" customClass="SearchInputView" customModule="Utilities">
-                            <rect key="frame" x="0.0" y="60.666666666666657" width="345" height="48"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="48" id="Z5E-Gz-gAv"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </textField>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qtp-YY-WfG" customClass="ListView" customModule="Utilities">
-                            <rect key="frame" x="0.0" y="128.66666666666669" width="345" height="622.33333333333326"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </view>
                     </subviews>
-                </stackView>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="sdN-rl-2lR" firstAttribute="height" secondItem="qH9-9Y-mgm" secondAttribute="height" id="Cpv-a3-5Du"/>
+                        <constraint firstItem="sdN-rl-2lR" firstAttribute="leading" secondItem="qH9-9Y-mgm" secondAttribute="leading" id="MSC-iP-2kH"/>
+                        <constraint firstItem="sdN-rl-2lR" firstAttribute="top" secondItem="qH9-9Y-mgm" secondAttribute="top" id="P8p-i6-KOc"/>
+                        <constraint firstItem="sdN-rl-2lR" firstAttribute="width" secondItem="qH9-9Y-mgm" secondAttribute="width" id="Rav-f4-dpA"/>
+                        <constraint firstItem="sdN-rl-2lR" firstAttribute="bottom" secondItem="qH9-9Y-mgm" secondAttribute="bottom" id="SJO-NB-PHn"/>
+                        <constraint firstItem="sdN-rl-2lR" firstAttribute="trailing" secondItem="qH9-9Y-mgm" secondAttribute="trailing" id="vt7-9g-nNR"/>
+                    </constraints>
+                </scrollView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="Background"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="tld-fY-sDC" secondAttribute="bottom" id="1A9-l5-Nwj"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="tld-fY-sDC" secondAttribute="trailing" constant="24" id="cO8-Gj-yDx"/>
-                <constraint firstItem="MbO-Lb-KeK" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="ecb-DP-uUz"/>
-                <constraint firstAttribute="trailing" secondItem="MbO-Lb-KeK" secondAttribute="trailing" constant="24" id="fPg-z7-we3"/>
-                <constraint firstItem="MbO-Lb-KeK" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="24" id="qXp-qD-NMY"/>
-                <constraint firstItem="tld-fY-sDC" firstAttribute="top" secondItem="MbO-Lb-KeK" secondAttribute="bottom" constant="8" id="qgH-mJ-ahI"/>
-                <constraint firstItem="tld-fY-sDC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="tch-gE-1a2"/>
+                <constraint firstItem="qH9-9Y-mgm" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="9z0-56-7iu"/>
+                <constraint firstItem="qH9-9Y-mgm" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="EkE-O4-jJq"/>
+                <constraint firstItem="qH9-9Y-mgm" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="ElN-1u-6QV"/>
+                <constraint firstItem="qH9-9Y-mgm" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="f1p-6o-Zeb"/>
+                <constraint firstItem="qH9-9Y-mgm" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="iWd-mR-a64"/>
+                <constraint firstAttribute="bottom" secondItem="qH9-9Y-mgm" secondAttribute="bottom" id="nZ9-xO-ZwL"/>
+                <constraint firstAttribute="bottom" secondItem="qH9-9Y-mgm" secondAttribute="bottom" id="qTS-Cm-HMm"/>
+                <constraint firstItem="qH9-9Y-mgm" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="v8n-JJ-F1M"/>
             </constraints>
-            <point key="canvasLocation" x="118" y="21"/>
+            <point key="canvasLocation" x="116.79389312977099" y="20.422535211267608"/>
         </view>
     </objects>
     <designables>

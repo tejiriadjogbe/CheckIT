@@ -12,7 +12,12 @@ import Combine
 import SDWebImage
 
 class ExploreViewController: BaseViewController {
+    @IBOutlet weak var scrollview: UIScrollView!
+    @IBOutlet weak var searchField: SearchInputView!
     @IBOutlet weak var profileListView: ListView!
+    
+    private var refreshControl = UIRefreshControl()
+    var filteredRepositoriesData: [RepositoriesResponse]?
     
     var coordinator: ExploreCoordinator?
     let vm = ExploreViewModel()
@@ -22,15 +27,54 @@ class ExploreViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bind()
-        input.send(.getRepos)
+        setupPulltoRefresh()
+        loadRepos()
+        handleFilter()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
     }
     
-    func initListView() {
-        if let data = vm.repositoriesData {
+    func loadRepos() {
+        if vm.hasOfflineData() {
+            initListView(with: vm.repositoriesData)
+        } else {
+            LoadingModal.show(title: "Loading Repositories...")
+        }
+        input.send(.getRepos)
+    }
+    
+    func setupPulltoRefresh() {
+        refreshControl.tintColor = .AppPrimary
+        scrollview.addSubview(refreshControl)
+        refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
+    }
+    
+    func handleFilter() {
+        searchField.textChanged = {[weak self] textField, range, string in
+            let searchText = (textField.text! as NSString).replacingCharacters(in: range, with: string)
+            self?.filteredRepositoriesData = self?.vm.repositoriesData?.filter({
+                if let name = $0.full_name?.lowercased() {
+                    return name.contains(searchText.lowercased())
+                }
+                return false
+            })
+            
+            if searchText.isEmpty {
+                self?.initListView(with: self?.vm.repositoriesData)
+            } else {
+                self?.initListView(with: self?.filteredRepositoriesData)
+            }
+        }
+    }
+    
+    @objc func refresh(_ sender: UIRefreshControl) {
+        loadRepos()
+    }
+    
+    func initListView(with data: [RepositoriesResponse]?) {
+        if let data = data {
             var model = ListViewModel()
             model.count = data.count
             model.height = 92
@@ -48,6 +92,7 @@ class ExploreViewController: BaseViewController {
             }
             model.onSelected = { [weak self] _, index in
                 let userUrl = data[index.row].owner?.url
+                LoadingModal.show(title: "Fetching user details...")
                 self?.input.send(.getUser(userUrl ?? ""))
             }
             profileListView.model = model
@@ -63,10 +108,13 @@ extension ExploreViewController {
     func bind() {
         vm.transform(input: input)
         cancellable = vm.output.receive(on: DispatchQueue.main).sink {[weak self] event in
+            LoadingModal.dismiss()
             switch event {
             case .getReposSuccess:
-                self?.initListView()
+                self?.refreshControl.endRefreshing()
+                self?.initListView(with: self?.vm.repositoriesData)
             case .getReposFailed(let error):
+                self?.refreshControl.endRefreshing()
                 print(error)
                 
             case .getUserSuccess:

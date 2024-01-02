@@ -25,6 +25,7 @@ class ExploreDetailViewController: BaseViewController {
         super.viewDidLoad()
         bind()
         setupUI()
+        LoadingModal.show(title: "Fetching user repo...")
         input.send(.getUserRepo(vm.userData?.repos_url ?? ""))
     }
 
@@ -68,7 +69,7 @@ class ExploreDetailViewController: BaseViewController {
                 let projectCardModel = ProjectCardModel(
                     name: data[index.row].name ?? "",
                     description: data[index.row].description ?? "Nothing to see here :)",
-                    date: data[index.row].updated_at ?? ""
+                    date: data[index.row].updated_at?.convertDateStringToReadableFormat() ?? ""
                 )
                 projectCard.model = projectCardModel
                 cell.applyView(view: projectCard)
@@ -88,6 +89,7 @@ extension ExploreDetailViewController {
     func bind() {
         vm.transform(input: input)
         cancellable = vm.output.receive(on: DispatchQueue.main).sink {[weak self] event in
+            LoadingModal.dismiss()
             switch event {
             case .getUserRepoSuccess:
                 self?.initListView()

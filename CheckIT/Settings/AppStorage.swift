@@ -10,5 +10,7 @@ final class AppStorage {
     @UserDefault("isFirstTime")
     static var isFirstTime: Bool?
     
+    @UserDefault("repositoriesData")
+    static var repositoriesData: String?
 }
 

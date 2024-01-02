@@ -55,6 +55,7 @@ class ExploreViewModel {
             switch result {
             case .success(let data):
                 self?.repositoriesData = data
+                self?.saveDataForOffline()
                 self?.output.send(.getReposSuccess)
             case .failure(let error):
                 self?.output.send(.getReposFailed(error))
@@ -84,5 +85,21 @@ class ExploreViewModel {
                 self?.output.send(.getReposFailed(error))
             }
         }
+    }
+    
+    func saveDataForOffline() {
+        let jsonData = try? JSONEncoder().encode(repositoriesData)
+        if let data = jsonData, let jsonString = String(data: data, encoding: .utf8) {
+            AppStorage.repositoriesData = jsonString
+        }
+    }
+    
+    func hasOfflineData() -> Bool {
+        if let offlineRepoData = AppStorage.repositoriesData,
+           let jsonData = offlineRepoData.data(using: .utf8)
+        {
+            repositoriesData = try? JSONDecoder().decode([RepositoriesResponse].self, from: jsonData)
+        }
+        return repositoriesData != nil
     }
 }

@@ -16,6 +16,8 @@ import UIKit
         }
     }
     
+    public var textChanged: (UITextField, NSRange, String) -> Void = { _, _, _ in }
+    
     public var model: SearchInputViewModel = SearchInputViewModel() {
         didSet {
             setup()
@@ -37,6 +39,7 @@ import UIKit
     }
     
     func setup() {
+        delegate = self
         backgroundColor = .clear
         layer.borderColor = UIColor.AppOutline.cgColor
         layer.borderWidth = 1
@@ -58,5 +61,12 @@ import UIKit
         imageView.contentMode = .scaleAspectFit
         iconContainer.addSubview(imageView)
         return iconContainer
+    }
+}
+
+extension SearchInputView: UITextFieldDelegate {
+    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        textChanged(textField, range, string)
+        return true
     }
 }
