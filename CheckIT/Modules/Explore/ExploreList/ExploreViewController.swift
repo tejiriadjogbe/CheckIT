@@ -7,13 +7,20 @@
 
 import UIKit
 import Utilities
+import Models
+import Combine
 
 class ExploreViewController: BaseViewController {
     @IBOutlet weak var profileListView: ListView!
     
     var coordinator: ExploreCoordinator?
+    let vm = ExploreViewModel()
+    let input = PassthroughSubject<ExploreViewModel.Input, Never>()
+    var cancellable: AnyCancellable?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        bind()
         initListView()
     }
     
@@ -31,8 +38,27 @@ class ExploreViewController: BaseViewController {
             return cell
         }
         model.onSelected = { _, _ in
-            self.coordinator?.goToExploreDetail()
+            //self.coordinator?.goToExploreDetail()
+            self.input.send(.getRepos)
         }
         profileListView.model = model
+    }
+    
+    deinit {
+        cancellable?.cancel()
+    }
+}
+
+extension ExploreViewController {
+    func bind() {
+        vm.transform(input: input)
+        cancellable = vm.output.sink { event in
+            switch event {
+            case .getReposSuccess(let data):
+                print(data)
+            case .getReposFailed(let error):
+                print(error)
+            }
+        }
     }
 }

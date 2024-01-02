@@ -18,11 +18,6 @@ let package = Package(
         .target(
            name: "Models",
            dependencies: []),
-//        .target(
-//           name: "Components",
-//           dependencies: [
-//            "Utilities"
-//           ]),
         .target(
            name: "Utilities",
            dependencies: [],
@@ -31,12 +26,13 @@ let package = Package(
         ]),
         .target(
            name: "Network",
-           dependencies: []),
+           dependencies: [
+           "Models"
+           ]),
         .target(
             name: "CheckITCore",
             dependencies: [
             "Models",
-            //"Components",
             "Utilities",
             "Network"
             ]),
