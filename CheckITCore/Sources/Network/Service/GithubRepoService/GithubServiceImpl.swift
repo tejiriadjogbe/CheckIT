@@ -13,7 +13,19 @@ public class GithubServiceImpl: GithubRepoService {
     
     public init() {}
     
-    public func getAllRepo(completion: @escaping (Result<[RepositoriesResponse], ErrorResponse>) -> Void) {
+    public func getUser(url: String, completion: @escaping (Result<UserResponse, ErrorResponse>) -> Void) {
+        requester.fetchData(url: url) {
+            completion($0)
+        }
+    }
+    
+    public func getUserRepo(url: String, completion: @escaping (Result<[RepoResponse], ErrorResponse>) -> Void) {
+        requester.fetchData(url: url) {
+            completion($0)
+        }
+    }
+    
+    public func getRepositories(completion: @escaping (Result<[RepositoriesResponse], ErrorResponse>) -> Void) {
         requester.fetchData(url: "https://api.github.com/repositories") {
             completion($0)
         }

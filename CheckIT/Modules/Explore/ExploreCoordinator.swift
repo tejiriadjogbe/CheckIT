@@ -5,6 +5,7 @@
 //  Created by Adjogbe  Tejiri on 31/12/2023.
 //
 import Utilities
+import Models
 import UIKit
 
 class ExploreCoordinator: Coordinator {
@@ -20,8 +21,9 @@ class ExploreCoordinator: Coordinator {
         UIApplication.shared.windows.first?.rootViewController = navigationController
     }
     
-    func goToExploreDetail() {
+    func goToExploreDetail(userData: UserResponse) {
         let vc: ExploreDetailViewController = .fromNib()
+        vc.vm.userData = userData
         vc.coordinator = self
         push(viewController: vc)
     }

@@ -13,14 +13,18 @@ let package = Package(
             name: "CheckITCore",
             targets: ["CheckITCore"]),
     ],
-    dependencies: [],
+    dependencies: [
+        .package(url: "https://github.com/SDWebImage/SDWebImage.git", from: "5.18.8")
+    ],
     targets: [
         .target(
            name: "Models",
            dependencies: []),
         .target(
            name: "Utilities",
-           dependencies: [],
+           dependencies: [
+            "SDWebImage"
+           ],
            resources: [
             .process("Resources")
         ]),

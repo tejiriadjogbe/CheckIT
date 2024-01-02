@@ -6,14 +6,15 @@
 //
 
 import UIKit
+import SDWebImage
 
 public class ProfileCardView: BaseXib {
 
     @IBOutlet weak var mainStack: UIStackView!
     @IBOutlet weak var leftStack: UIStackView!
     @IBOutlet weak var imageheghtConstrain: NSLayoutConstraint!
+    @IBOutlet weak var commits: RegularLabel!
     @IBOutlet weak var commitsFul: SemiBoldLabel!
-    @IBOutlet weak var commits: SemiBoldLabel!
     @IBOutlet weak var email: RegularLabel!
     @IBOutlet weak var city: RegularLabel!
     @IBOutlet weak var name: SemiBoldLabel!
@@ -39,6 +40,10 @@ public class ProfileCardView: BaseXib {
         image.layer.cornerRadius = image.bounds.height / 2
         email.isHidden = true
         commitsFul.isHidden = true
+        image.sd_setImage(with: URL(string: model.imgURL), placeholderImage: UIImage())
+        name.text = model.name
+        city.text = model.city
+        commits.text = model.commits
     }
 }
 

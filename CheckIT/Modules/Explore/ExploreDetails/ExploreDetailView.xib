@@ -12,6 +12,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ExploreDetailViewController" customModule="CheckIT" customModuleProvider="target">
             <connections>
+                <outlet property="about" destination="yuJ-To-Rla" id="Sqg-0z-jT6"/>
+                <outlet property="profileCard" destination="JHi-ew-Ouo" id="Hz7-SI-qbQ"/>
                 <outlet property="projectListView" destination="mBN-Ep-RZ0" id="Mi5-n5-mBW"/>
                 <outlet property="scrollView" destination="F5v-if-6cY" id="lF0-hd-QbS"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -23,13 +25,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F5v-if-6cY">
-                    <rect key="frame" x="0.0" y="0.0" width="393" height="947"/>
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="1102"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R7y-c6-FOX">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="947"/>
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="1102"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="yN5-fa-4Ge">
-                                    <rect key="frame" x="19" y="0.0" width="355" height="947"/>
+                                    <rect key="frame" x="19" y="0.0" width="355" height="417"/>
                                     <subviews>
                                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JHi-ew-Ouo" customClass="LargeProfileCardView" customModule="Utilities">
                                             <rect key="frame" x="0.0" y="0.0" width="355" height="89"/>
@@ -39,7 +41,7 @@
                                             </constraints>
                                         </view>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="KMX-xa-yQm">
-                                            <rect key="frame" x="5" y="113" width="345" height="834"/>
+                                            <rect key="frame" x="5" y="113" width="345" height="304"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="brn-mz-CE0">
                                                     <rect key="frame" x="0.0" y="0.0" width="345" height="208"/>
@@ -96,13 +98,6 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mBN-Ep-RZ0" customClass="ListView" customModule="Utilities">
-                                                    <rect key="frame" x="0.0" y="334" width="345" height="500"/>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="500" id="sAx-Sf-kg5"/>
-                                                    </constraints>
-                                                </view>
                                             </subviews>
                                         </stackView>
                                     </subviews>
@@ -113,13 +108,20 @@
                                         <constraint firstItem="JHi-ew-Ouo" firstAttribute="leading" secondItem="yN5-fa-4Ge" secondAttribute="leading" id="yHb-Bi-K3I"/>
                                     </constraints>
                                 </stackView>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mBN-Ep-RZ0" customClass="ListView" customModule="Utilities">
+                                    <rect key="frame" x="24" y="441" width="345" height="661"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                </view>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstItem="yN5-fa-4Ge" firstAttribute="leading" secondItem="R7y-c6-FOX" secondAttribute="leading" constant="19" id="9V4-dw-ruZ"/>
                                 <constraint firstItem="yN5-fa-4Ge" firstAttribute="top" secondItem="R7y-c6-FOX" secondAttribute="top" id="EG0-3o-k0T"/>
-                                <constraint firstAttribute="bottom" secondItem="yN5-fa-4Ge" secondAttribute="bottom" id="WN5-R6-uvj"/>
+                                <constraint firstAttribute="trailing" secondItem="mBN-Ep-RZ0" secondAttribute="trailing" constant="24" id="EnE-Jr-HsR"/>
+                                <constraint firstItem="mBN-Ep-RZ0" firstAttribute="top" secondItem="yN5-fa-4Ge" secondAttribute="bottom" constant="24" id="KzP-8h-yXm"/>
+                                <constraint firstAttribute="bottom" secondItem="mBN-Ep-RZ0" secondAttribute="bottom" id="lF0-Do-8LD"/>
                                 <constraint firstAttribute="trailing" secondItem="yN5-fa-4Ge" secondAttribute="trailing" constant="19" id="mHz-zk-D51"/>
+                                <constraint firstItem="mBN-Ep-RZ0" firstAttribute="leading" secondItem="R7y-c6-FOX" secondAttribute="leading" constant="24" id="xwd-4P-cmO"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -138,6 +140,7 @@
             <constraints>
                 <constraint firstItem="F5v-if-6cY" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="1gS-ky-FVb"/>
                 <constraint firstItem="F5v-if-6cY" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="8Uq-YY-jxO"/>
+                <constraint firstAttribute="bottom" secondItem="F5v-if-6cY" secondAttribute="bottom" id="VEp-1I-vAQ"/>
                 <constraint firstItem="F5v-if-6cY" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="paM-ZE-NND"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

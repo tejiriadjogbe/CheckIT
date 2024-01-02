@@ -14,6 +14,7 @@
 		910E71852B42AF5200788671 /* ExploreDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910E71832B42AF5200788671 /* ExploreDetailViewController.swift */; };
 		910E71862B42AF5200788671 /* ExploreDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 910E71842B42AF5200788671 /* ExploreDetailView.xib */; };
 		910E718A2B43FED400788671 /* ExploreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910E71892B43FED400788671 /* ExploreViewModel.swift */; };
+		910E71902B4439EF00788671 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 910E718F2B4439EF00788671 /* SDWebImage */; };
 		91B4CF9A2B40C25A00CF016F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B4CF992B40C25A00CF016F /* AppDelegate.swift */; };
 		91B4CFA32B40C25C00CF016F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91B4CFA22B40C25C00CF016F /* Assets.xcassets */; };
 		91B4CFA62B40C25C00CF016F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91B4CFA42B40C25C00CF016F /* LaunchScreen.storyboard */; };
@@ -81,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				910E71902B4439EF00788671 /* SDWebImage in Frameworks */,
 				91B4CFCC2B40CB1D00CF016F /* CheckITCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -108,6 +110,7 @@
 				910E71822B42AF3300788671 /* ExploreDetails */,
 				910E71812B42AF0600788671 /* ExploreList */,
 				910E717C2B41DBD800788671 /* ExploreCoordinator.swift */,
+				910E71892B43FED400788671 /* ExploreViewModel.swift */,
 			);
 			path = Explore;
 			sourceTree = "<group>";
@@ -117,7 +120,6 @@
 			children = (
 				910E71782B41DBAD00788671 /* ExploreViewController.swift */,
 				910E71792B41DBAD00788671 /* ExploreView.xib */,
-				910E71892B43FED400788671 /* ExploreViewModel.swift */,
 			);
 			path = ExploreList;
 			sourceTree = "<group>";
@@ -248,6 +250,7 @@
 			name = CheckIT;
 			packageProductDependencies = (
 				91B4CFCB2B40CB1D00CF016F /* CheckITCore */,
+				910E718F2B4439EF00788671 /* SDWebImage */,
 			);
 			productName = CheckIT;
 			productReference = 91B4CF962B40C25A00CF016F /* CheckIT.app */;
@@ -321,6 +324,9 @@
 				Base,
 			);
 			mainGroup = 91B4CF8D2B40C25A00CF016F;
+			packageReferences = (
+				910E718E2B4439EF00788671 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = 91B4CF972B40C25A00CF016F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -717,7 +723,23 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		910E718E2B4439EF00788671 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.18.8;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
+		910E718F2B4439EF00788671 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 910E718E2B4439EF00788671 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
 		91B4CFCB2B40CB1D00CF016F /* CheckITCore */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = CheckITCore;

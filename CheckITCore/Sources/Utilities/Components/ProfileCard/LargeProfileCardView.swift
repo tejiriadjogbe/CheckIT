@@ -10,6 +10,7 @@ import UIKit
 @IBDesignable public class LargeProfileCardView: ProfileCardView {
     override func setup() {
         super.setup()
+        commitsFul.text = "\(model.commits)"
         email.isHidden = false
         commitsFul.isHidden = false
         leftStack.isHidden = true

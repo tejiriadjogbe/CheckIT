@@ -56,7 +56,7 @@ public class BasicHTTPClient: HTTPClientContract {
                     completion(.failure(ErrorResponse(message: "Invalid Response")))
                     return
                 }
-
+                //print(httpResponse.allHeaderFields)
                 switch httpResponse.statusCode {
                 case 200...299:
                     let decoder = JSONDecoder()

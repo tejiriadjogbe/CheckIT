@@ -14,6 +14,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileCardView" customModule="Components">
             <connections>
                 <outlet property="city" destination="dus-PD-ppN" id="cug-4i-bSy"/>
+                <outlet property="commits" destination="oNS-2W-Duk" id="eqn-5d-u6e"/>
                 <outlet property="commitsFul" destination="RyL-hI-vXI" id="pdy-O8-Tt4"/>
                 <outlet property="email" destination="lgj-T6-KbB" id="Qw0-iY-DXL"/>
                 <outlet property="image" destination="1hk-2K-s0g" id="bus-Yx-Vc7"/>
@@ -32,7 +33,7 @@
                     <rect key="frame" x="10" y="2" width="373" height="96.333333333333329"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="zMM-sh-gAe">
-                            <rect key="frame" x="0.0" y="0.0" width="290.66666666666669" height="96.333333333333329"/>
+                            <rect key="frame" x="0.0" y="0.0" width="290.33333333333331" height="96.333333333333329"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slider1" translatesAutoresizingMaskIntoConstraints="NO" id="1hk-2K-s0g">
                                     <rect key="frame" x="0.0" y="23" width="50" height="50"/>
@@ -43,7 +44,7 @@
                                     </constraints>
                                 </imageView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="3Cr-c8-09y">
-                                    <rect key="frame" x="59.999999999999986" y="0.0" width="230.66666666666663" height="96.333333333333329"/>
+                                    <rect key="frame" x="60.000000000000014" y="0.0" width="230.33333333333337" height="96.333333333333329"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Emily Smith" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XNo-WG-G3P" customClass="SemiBoldLabel" customModule="Utilities">
                                             <rect key="frame" x="0.0" y="0.0" width="89" height="20.333333333333332"/>
@@ -57,7 +58,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email: marcus.j@example.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lgj-T6-KbB" customClass="RegularLabel" customModule="Utilities">
-                                            <rect key="frame" x="0.0" y="25.333333333333336" width="230.66666666666666" height="20.333333333333336"/>
+                                            <rect key="frame" x="0.0" y="25.333333333333336" width="230.33333333333334" height="20.333333333333336"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" name="Body"/>
                                             <nil key="highlightedColor"/>
@@ -94,7 +95,7 @@
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="IhF-Uu-IQX">
-                            <rect key="frame" x="305" y="0.0" width="68" height="96.333333333333329"/>
+                            <rect key="frame" x="298.33333333333331" y="0.0" width="74.666666666666686" height="96.333333333333329"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30k+" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oNS-2W-Duk" customClass="RegularLabel" customModule="Utilities">
                                     <rect key="frame" x="0.0" y="0.0" width="39" height="20.333333333333332"/>
@@ -121,6 +122,9 @@
                             </subviews>
                         </stackView>
                     </subviews>
+                    <constraints>
+                        <constraint firstItem="IhF-Uu-IQX" firstAttribute="width" secondItem="RQQ-sa-eEJ" secondAttribute="width" multiplier="0.2" id="NQx-51-8HF"/>
+                    </constraints>
                 </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="NIL-Wl-mk7"/>
