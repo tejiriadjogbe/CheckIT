@@ -94,8 +94,7 @@ extension ExploreDetailViewController {
             case .getUserRepoSuccess:
                 self?.initListView()
             case .getUserRepoFailed(let error):
-                print(error)
-                
+                self?.showAlert(title: "Error", message: error.message)
             default: break
             }
         }

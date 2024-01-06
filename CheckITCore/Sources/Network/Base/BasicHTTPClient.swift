@@ -56,11 +56,17 @@ public class BasicHTTPClient: HTTPClientContract {
                     completion(.failure(ErrorResponse(message: "Invalid Response")))
                     return
                 }
+                
+                guard let data = data else {
+                    // Handle nil Data
+                    completion(.failure(ErrorResponse(message: "Invalid Response")))
+                    return
+                }
                 //print(httpResponse.allHeaderFields)
                 switch httpResponse.statusCode {
                 case 200...299:
                     let decoder = JSONDecoder()
-                    let result = try decoder.decode(T.self, from: data!)
+                    let result = try decoder.decode(T.self, from: data)
                     completion(.success(result))
                 default:
                     completion(.failure(ErrorResponse(httpStatusCode: httpResponse.statusCode, message: "Request failed with status code: \(httpResponse.statusCode)")))

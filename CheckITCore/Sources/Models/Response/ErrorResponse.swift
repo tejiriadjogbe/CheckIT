@@ -6,8 +6,8 @@
 //
 
 public struct ErrorResponse: Error {
-    var httpStatusCode: Int
-    var message: String
+    public let httpStatusCode: Int
+    public let message: String
     
     public init(httpStatusCode: Int = 0, message: String) {
         self.httpStatusCode = httpStatusCode

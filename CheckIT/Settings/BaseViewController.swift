@@ -44,15 +44,20 @@ class BaseViewController: UIViewController {
         navigationController?.navigationBar.standardAppearance = navigationBarAppearance
         navigationController?.navigationBar.compactAppearance = navigationBarAppearance
         navigationController?.navigationBar.scrollEdgeAppearance = navigationBarAppearance
-        setTitleAllignment()
     }
     
-    func setTitleAllignment() {
-        let label = UILabel()
-        label.text = navigationItem.title
-        label.textAlignment = .left
-        label.font = Fonts.getFont(name: .Bold, 20)
-        label.frame = .infinite
-        self.navigationItem.titleView = label
-    }
+    func showAlert(title: String, message: String) {
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+
+            // Create an OK action
+            let okAction = UIAlertAction(title: "OK", style: .default) { (_) in
+                // Handle the OK button tap (if needed)
+            }
+
+            // Add the OK action to the alert controller
+            alertController.addAction(okAction)
+
+            // Present the alert controller
+            present(alertController, animated: true, completion: nil)
+        }
 }

@@ -115,14 +115,14 @@ extension ExploreViewController {
                 self?.initListView(with: self?.vm.repositoriesData)
             case .getReposFailed(let error):
                 self?.refreshControl.endRefreshing()
-                print(error)
+                self?.showAlert(title: "Error", message: error.message)
                 
             case .getUserSuccess:
                 if let data = self?.vm.userData {
                     self?.coordinator?.goToExploreDetail(userData: data)
                 }
             case .getUserFailed(let error):
-                print(error)
+                self?.showAlert(title: "Error", message: error.message)
                 
             default: break
             }
